@@ -1,0 +1,291 @@
+:root {
+  --bg-color: #000;
+  --text-color: #e5e5e5;
+  --accent-color: #c72c41;
+  --overlay: rgba(0, 0, 0, 0);
+  --font-main: 'Cinzel', serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Banner con immagine di sfondo e overlay trasparente */
+.banner {
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  position: relative;
+  background-attachment: fixed;
+}
+.banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 0;
+}
+.banner h1 {
+  display: none; /* Nasconde il titolo "Elden Ring" */
+  position: relative;
+  z-index: 1;
+}
+
+/* Navigation - trasparente con effetto vetro */
+nav {
+  background: rgba(0, 0, 0, 0); /* trasparente */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 10px;
+}
+nav ul li {
+  margin: 5px 15px;
+}
+nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background .3s, color .3s;
+}
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--bg-color);
+  background: var(--accent-color);
+  
+}
+header {
+  margin-top: 600px;   /* sposta verso il basso */
+
+}
+
+/* Sezione Home trasparente per vedere la cover sottostante */
+.home-section {
+  position: relative;
+  z-index: 1;
+  background: transparent; /* totalmente trasparente */
+  padding: 40px 20px;
+  border-radius: 8px;
+  color: var(--text-color);
+}
+
+/* Sections general */
+section {
+  padding: 40px 20px;
+}
+h2 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+/* Card base (Boss, Personaggi, Fazioni) */
+.card {
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+  transition: transform .3s;
+  margin-bottom: 20px;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+.card-content {
+  padding: 15px;
+}
+
+/* Liste  */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+ul li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+/* Sezione DLC */
+.dlc-section {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 8px;
+}
+.dlc-section h2 {
+  margin-top: 0;
+}
+
+/* Sezione Curiosità */
+.curiosita-section ul {
+  columns: 2;
+  column-gap: 40px;
+}
+
+/* Sezione Fazioni */
+.fazioni-section .card {
+  border-left: 4px solid var(--accent-color);
+}
+
+/* Sezione Futuro */
+.futuro-section {
+  background-image: url('img/banner.jpg');
+  background-position: center;
+  position: relative;
+  color: var(--text-color);
+  padding: 60px 20px;
+  border-radius: 8px;
+}
+.futuro-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+}
+.futuro-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Sezione Personaggi */
+.personaggi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.personaggi-grid .card {
+  background: #222;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: var(--accent-color);
+}
+.timeline-item {
+  width: 45%;
+  padding: 20px;
+  position: relative;
+  background: #1a1a1a;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+.timeline-item:nth-child(even) {
+  left: 55%;
+}
+.map-link {
+  display: inline-block;
+  background-color: #c72c41;
+  color: #e5e5e5;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+
+/* Mappa Section */
+.mappa-section {
+  background-color: rgb(0, 0, 0);
+  padding: 40px 20px;
+  color: #e5e5e5;
+}
+
+.mappa-section h2 {
+  color: #c72c41;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 3rem; /* Aumentato per maggiore visibilità */
+  font-weight: 700; /* Grassetto */
+}
+
+.mappa-section .card-link {
+  background-color: #c72c41;
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+  display: inline-block;
+}
+.mappa-section p {
+  font-size: 1.5rem; /* Ingrandito il testo */
+  color: #fff; /* Colore bianco */
+  text-align: center; /* Centrato orizzontalmente */
+  margin-top: 20px; /* Distanza sopra il paragrafo */
+  margin-bottom: 30px; /* Distanza sotto il paragrafo */
+}
+
+.mappa-section {
+  text-align: center; /* Aggiunto per centrare tutto il contenuto dentro la sezione */
+}
+
+.mappa-section a {
+  font-size: 1.2rem; /* Ingrandito il link */
+  color: #fff; /* Colore bianco */
+  text-decoration: none; /* Rimuove la sottolineatura */
+  background-color: #c72c41; /* Rosso per il bottone */
+  padding: 10px 20px; /* Distanza interna del link */
+  border-radius: 5px; /* Angoli arrotondati */
+  display: inline-block; /* In-line block per centrare il tasto */
+  margin: 20px auto; /* Centra il pulsante con il margine */
+  transition: background-color 0.3s; /* Aggiungi l'effetto hover */
+}
+
+.mappa-section a:hover {
+  background-color: #a7282b; /* Cambia colore quando si passa sopra */
+}
+
+.mappa-section .card-link:hover {
+  background-color: #a7282b;
+  color: #fff;
+}
+
+
+
+
+/* Footer & Torna alla Home */
+footer {
+  text-align: center;
+  padding: 20px;
+}
+footer a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color .3s;
+}
+footer a:hover {
+  color: var(--accent-color);
+}
